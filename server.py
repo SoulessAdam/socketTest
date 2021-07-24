@@ -23,10 +23,11 @@ def client_handle(conn, addr):
 
 def start():
     server.listen()
+    print(f"[LISTEN] Beginning Listening on {ADDR}")
     while True:
         conn, addr = server.accept()
         threading.Thread(target=client_handle, args=(conn, addr)).start()
         print(f"[CONNECTION] {threading.activeCount() -1}")
 
-print("Starting Server")
+print(f"[SERVER] Starting Server...")
 start()
