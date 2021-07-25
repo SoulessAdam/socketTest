@@ -1,4 +1,6 @@
 import socket
+import threading
+import ctypes
 
 HEADER = 64
 port = 6969
@@ -18,11 +20,18 @@ def send_msg(msg):
     send_length = padMessage(send_length)
     client.send(send_length)
     client.send(message)
-    print(client.recv(2048).decode(FORMAT))
-    
+    incomingMsg_handler()
+
+
 def padMessage(msg):
     msg += b' '*(HEADER-len(msg))
     return msg
+
+def incomingMsg_handler():
+    a = client.recv(2048).decode(FORMAT).strip()
+    print(a)
+        
+
 
 print(f"Connected to server {ADDR}.")
 print(client.recv(2048).decode(FORMAT))
@@ -31,3 +40,6 @@ while True:
     send_msg(message)
     if message == DISCONNECT_MSG:
         break
+    if message == EXIT_MSG:
+        break
+    if message == "echo": incomingMsg_handler()
