@@ -16,7 +16,7 @@ server.bind(ADDR)
 def client_handle(conn, addr):
     print(f"[CONNECTION] {addr} connected.")
     connected  = True
-    conn.send(f"You have connected to server {addr}. Server Restart Message = {=EXIT_MSG}")
+    conn.send(f"You have connected to server {addr}. Server Restart Message = {EXIT_MSG}".encode(FORMAT))
     while connected:
         msg_len = conn.recv(HEADER).decode("utf-8")
         if msg_len:

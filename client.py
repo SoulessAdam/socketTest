@@ -27,7 +27,6 @@ def padMessage(msg):
 print(f"Connected to server {ADDR}.")
 print(client.recv(2048).decode(FORMAT))
 while True:
-    print(client.recv(2048).decode(FORMAT))
     message = input("Input Message To Send: ")
     send_msg(message)
     if message == DISCONNECT_MSG:
