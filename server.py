@@ -10,13 +10,14 @@ server_ip = socket.gethostbyname(socket.gethostname())
 ADDR = (server_ip, port)
 DISCONNECT_MSG= "@disc"
 EXIT_MSG = "@killServer 1902-783298-238947"
-global thread1
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
+
 def client_handle(conn, addr):
     print(f"[CONNECTION] {addr} connected.")
-    connected  = True
+    connected = True
     conn.send(f"You have connected to server {ADDR} as {addr}. Server Restart Message = {EXIT_MSG}".encode(FORMAT))
     while connected:
         msg_len = conn.recv(HEADER).decode("utf-8")
@@ -41,6 +42,7 @@ def client_handle(conn, addr):
 
     conn.close()
 
+
 def start():
     server.listen()
     print(f"[LISTEN] Beginning Listening on {ADDR}")
@@ -49,6 +51,7 @@ def start():
         thread1 = threading.Thread(target=client_handle, args=(conn, addr))
         thread1.start()
         print(f"[CONNECTION] Active Connections ={(threading.activeCount() - 1)}")
+
 
 print(f"[SERVER] Starting Server...")
 start()
