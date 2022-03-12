@@ -1,4 +1,5 @@
 # socketTest
 
 ### Python Socket Test
-#### This is a test to see performance and data handling from python to python. Will then include C# before moving towards a cross-language integration across a local server, and different programs, allowing them to interact with each other. 
+#### Random socket shit idk anymore, allows for UDP Clients and Servers to be created and other fun stuff!!!!! 
+##### Obviously since these are just sockets they are cross-language/platform, e.g. see C# UDP Client repo.
