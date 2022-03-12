@@ -16,6 +16,6 @@ def startRecv():
         message = bytesAddressPair[0]
         address = bytesAddressPair[1]
 
-        print(f"Message From {address}: {message}")
+        print(f"Message From {address}: {message.decode(FORMAT)}")
 
 startRecv()
