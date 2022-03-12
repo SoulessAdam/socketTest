@@ -18,15 +18,9 @@ def startRecv():
     print(f"[UDP CLIENT] Listening on {ADDR}")
     while True:
         bytesAddressPair = server.recvfrom(HEADER)
-
         message = bytesAddressPair[0]
-
         address = bytesAddressPair[1]
 
-        clientMsg = "Message from Client:{}".format(message)
-        clientIP = "Client IP Address:{}".format(address)
-
-        print(clientMsg)
-        print(clientIP)
+        print(f"Message From {address}: {message}")
 
 startRecv()
