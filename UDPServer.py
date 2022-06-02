@@ -1,8 +1,8 @@
 import socket
 
-HEADER = 1024
+HEADER = 50000
 port = 6969
-FORMAT = "utf-8"
+#FORMAT = "utf-8"
 server_ip = socket.gethostbyname(socket.gethostname())
 ADDR = (server_ip, port)
 
@@ -16,6 +16,6 @@ def startRecv():
         message = bytesAddressPair[0]
         address = bytesAddressPair[1]
 
-        print(f"Message From {address}: {message.decode(FORMAT)}")
+        print(f"Message From {address}: {message}")
 
 startRecv()
